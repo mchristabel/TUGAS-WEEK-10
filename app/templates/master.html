@@ -1,0 +1,29 @@
+<!--https://flask.palletsprojects.com/en/1.1.x/tutorial/templates/-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Belajar Flask</title>
+    <link rel='stylesheet' href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>Flaskr</h1>
+        <ul>
+            <li><a href="{{ url_for('register_index') }}">Register</a>
+            <li><a href="{{ url_for('login_index') }}">Log In</a>
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </section>
+</body>
+
+</html>

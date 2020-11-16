@@ -1,0 +1,26 @@
+<!--
+    Ide desain dari: https://bootsnipp.com/snippets/7nk08
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Belajar Flask</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="login-main-text">
+            {% block main_side %}{% endblock %}
+        </div>
+    </div>
+    <div class="main">
+        {% block main_content %}{% endblock %}
+    </div>
+
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+    {% block addtional_style %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/jquery3.5.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    {% block addtional_script %}{% endblock %}
+</body>
